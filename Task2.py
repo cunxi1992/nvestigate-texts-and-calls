@@ -49,20 +49,26 @@ def get_dictionary(list_call):
 # 调用函数
 call_times = get_dictionary(calls)
 
-# 利用列表生成式将通话时长生成列表
-times = [value for value in call_times.values()]
-
-# 计算最长的通话时长是多少
-max_times = max(times)
-
-# 将原有字典的键和值互换生成新的字典，以便直接获取最大通话时长的电话号码
-new_dict = {v:k for k,v in call_times.items()}
-
-# 通话时长最长的电话号码
-phone_number = new_dict[max_times]
+# 获取字典中最大值对应的键
+number_key = max(call_times,key = call_times.get)
 
 # 输出哪一个电话号码通话时长最长，且最长时长是多少
-print ("{0} spent the longest time,{1} seconds, on the phone during September 2016.".format(phone_number,max_times))
+print ("{0} spent the longest time,{1} seconds, on the phone during September 2016.".format(number_key,call_times[number_key]))
+
+# # 利用列表生成式将通话时长生成列表
+# times = [value for value in call_times.values()]
+
+# # 计算最长的通话时长是多少
+# max_times = max(times)
+
+# # 将原有字典的键和值互换生成新的字典，以便直接获取最大通话时长的电话号码
+# new_dict = {v:k for k,v in call_times.items()}
+
+# # 通话时长最长的电话号码
+# phone_number = new_dict[max_times]
+
+# # 输出哪一个电话号码通话时长最长，且最长时长是多少
+# print ("{0} spent the longest time,{1} seconds, on the phone during September 2016.".format(phone_number,max_times))
 
 
 
